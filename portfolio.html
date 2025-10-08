@@ -365,16 +365,42 @@
             font-size: 1.3rem;
             color: var(--primary-color);
         }
-        
+
         /* --- Styles for Clickable Certificate Cards --- */
         .cert-link {
-            text-decoration: none; /* Removes underline from links */
-            color: inherit; /* Makes text inside the link inherit its color */
+            text-decoration: none;
+            /* Removes underline from links */
+            color: inherit;
+            /* Makes text inside the link inherit its color */
+            display: flex; /* Ensures link takes up full card space */
         }
 
         .cert-card {
-            cursor: pointer; /* Changes the mouse to a pointer on hover */
+            cursor: pointer;
+            /* Changes the mouse to a pointer on hover */
+            width: 100%; /* Make card fill the link area */
         }
+        
+        .cert-view-link {
+            margin-top: auto; /* Pushes it to the bottom */
+            padding-top: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .cert-card:hover .cert-view-link {
+            color: var(--accent-color); /* Change color on hover of the card */
+        }
+
+        .cert-view-link i {
+            width: 18px;
+            height: 18px;
+        }
+
 
         .highlight-project {
             grid-column: 1 / -1;
@@ -642,6 +668,9 @@
                             <div class="cert-card-content">
                                 <h4>Training in Core Java</h4>
                                 <p>Issued by: Lakshya Institute of Technology (LIT)</p>
+                                <div class="cert-view-link">
+                                    View Certificate <i data-feather="external-link"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -651,6 +680,9 @@
                             <div class="cert-card-content">
                                 <h4>Google Cloud Agentic AI Day</h4>
                                 <p>Participation | Issued by: Hack2Skill, 2025</p>
+                                <div class="cert-view-link">
+                                    View Certificate <i data-feather="external-link"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -660,6 +692,9 @@
                             <div class="cert-card-content">
                                 <h4>Adobe India Hackathon (Round 1)</h4>
                                 <p>Issued by: Unstop & Adobe, 2025</p>
+                                <div class="cert-view-link">
+                                    View Certificate <i data-feather="external-link"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -753,3 +788,4 @@
 </body>
 
 </html>
+
