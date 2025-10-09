@@ -194,6 +194,43 @@
             margin-bottom: 1.5rem;
         }
 
+        /* --- Animated Subtitle (Typing Effect) --- */
+        .animated-subtitle {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--primary-color);
+            /* The cursor */
+            animation: typing 2.5s steps(40, end) 1s forwards,
+                       blink .75s step-end 4 1s forwards;
+            width: 0;
+            /* Start with 0 width */
+        }
+
+        /* The typing effect keyframe */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* The cursor blinking effect keyframe */
+        @keyframes blink {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--primary-color);
+            }
+        }
+
         .hero-text p {
             font-size: 1.1rem;
             margin-bottom: 2.5rem;
@@ -372,17 +409,20 @@
             /* Removes underline from links */
             color: inherit;
             /* Makes text inside the link inherit its color */
-            display: flex; /* Ensures link takes up full card space */
+            display: flex;
+            /* Ensures link takes up full card space */
         }
 
         .cert-card {
             cursor: pointer;
             /* Changes the mouse to a pointer on hover */
-            width: 100%; /* Make card fill the link area */
+            width: 100%;
+            /* Make card fill the link area */
         }
-        
+
         .cert-view-link {
-            margin-top: auto; /* Pushes it to the bottom */
+            margin-top: auto;
+            /* Pushes it to the bottom */
             padding-top: 1rem;
             font-weight: bold;
             color: var(--primary-color);
@@ -393,7 +433,8 @@
         }
 
         .cert-card:hover .cert-view-link {
-            color: var(--accent-color); /* Change color on hover of the card */
+            color: var(--accent-color);
+            /* Change color on hover of the card */
         }
 
         .cert-view-link i {
@@ -538,7 +579,7 @@
         <section id="home">
             <div class="hero-container">
                 <div class="hero-text fade-in">
-                    <h1>Hello, I'm Aditya Mallick.<br>An IoT & AI Enthusiast</h1>
+                    <h1>Hello, I'm Aditya Mallick.<br><span class="animated-subtitle">An IoT & AI Enthusiast</span></h1>
                     <p>A third-year Computer Science student with a background in the Internet of Things (IoT). I'm
                         passionate about building smart, connected systems and am now expanding my skills into AI and
                         Machine Learning to create truly intelligent devices. I am seeking an internship where I can
