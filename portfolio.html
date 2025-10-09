@@ -202,7 +202,7 @@
             border-right: 3px solid var(--primary-color);
             /* The cursor */
             animation: typing 2.5s steps(40, end) 1s forwards,
-                       blink .75s step-end 4 1s forwards;
+                blink .75s step-end 4 1s forwards; /* Blink 4 times then disappear after 1s delay */
             width: 0;
             /* Start with 0 width */
         }
@@ -451,13 +451,18 @@
         .project-card .project-links {
             margin-top: auto;
             padding-top: 1rem;
+            display: flex; /* Make links horizontal */
+            gap: 1rem; /* Space between links */
+            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
         }
 
         .project-links a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
-            margin-right: 1rem;
+            display: flex; /* Allow icon next to text */
+            align-items: center; /* Vertically align icon and text */
+            gap: 0.5rem; /* Space between text and icon */
             transition: color 0.3s ease;
         }
 
@@ -465,6 +470,58 @@
             color: var(--accent-color);
             text-decoration: underline;
         }
+        
+        /* --- Video Modal Styles --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top of everything */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Make the iframe responsive */
+        .modal-content iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* For a 16:9 video ratio */
+            height: auto;
+        }
+
 
         /* --- Contact Section --- */
         #contact .container {
@@ -690,7 +747,8 @@
                                 offices, and security-sensitive areas.</p>
                             <div class="project-links">
                                 <a href="https://github.com/AdityaMallick01/Surveillance-Robot-" target="_blank">View
-                                    Code</a>
+                                    Code <i data-feather="github" style="width:16px; vertical-align: middle;"></i></a>
+                                <a href="#" id="openModalBtn">Watch Demo <i data-feather="video" style="width:16px; vertical-align: middle;"></i></a>
                             </div>
                         </div>
                     </div>
@@ -766,6 +824,14 @@
         </section>
     </main>
 
+    <!-- The Video Modal (Popup) -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="projectVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Aditya Mallick. All rights reserved.</p>
@@ -825,6 +891,31 @@
             appearOnScroll.observe(fader);
         });
 
+        // --- Video Modal Logic ---
+        const modal = document.getElementById("videoModal");
+        const openModalBtn = document.getElementById("openModalBtn"); // Renamed to avoid conflict
+        const closeBtn = document.querySelector(".close-btn");
+        const videoFrame = document.getElementById("projectVideo");
+        const videoId = "Rx1IEUGFois"; // Your YouTube video ID
+        const videoSrcBase = "https://www.youtube.com/embed/"; 
+
+        openModalBtn.onclick = function(e) {
+            e.preventDefault(); // Prevent page from jumping to top
+            modal.style.display = "block";
+            videoFrame.src = videoSrcBase + videoId; // Set the video src when opening
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+            videoFrame.src = ""; // Stop the video from playing in the background
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                videoFrame.src = ""; // Stop the video
+            }
+        }
     </script>
 </body>
 
