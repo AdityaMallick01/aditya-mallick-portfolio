@@ -1,7 +1,7 @@
 Aditya Mallick's Personal Portfolio
 This repository contains the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a technology enthusiast specializing in IoT and AI.
 
-View the Live Portfolio Here
+🚀 View the Live Portfolio Here 🚀
 Overview
 This is a fully responsive, single-page website built with modern HTML, CSS, and vanilla JavaScript. The goal was to create a clean, professional, and visually engaging online presence for potential employers and collaborators. The site is hosted for free using GitHub Pages.
 
