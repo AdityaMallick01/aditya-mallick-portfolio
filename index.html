@@ -173,7 +173,8 @@
 
         .hero-container {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr; /* Gives more space to text to prevent clipping */
+            grid-template-columns: 1fr 1fr;
+            /* Gives more space to text to prevent clipping */
             align-items: center;
             gap: 2rem;
             max-width: 1200px;
@@ -192,7 +193,16 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 1.2;
             margin-bottom: 1.5rem;
+            max-width: 700px;
         }
+
+        .hero-text h2 {
+            font-family: var(--font-headings);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+        }
+
 
         /* --- Animated Subtitle (Typing Effect) --- */
         .animated-subtitle {
@@ -202,7 +212,8 @@
             border-right: 3px solid var(--primary-color);
             /* The cursor */
             animation: typing 2.5s steps(40, end) 1s forwards,
-                blink .75s step-end 4 1s forwards; /* Blink 4 times then disappear after 1s delay */
+                blink .75s step-end 4 1s forwards;
+            /* Blink 4 times then disappear after 1s delay */
             width: 0;
             /* Start with 0 width */
         }
@@ -462,7 +473,7 @@
             color: var(--accent-color);
             text-decoration: underline;
         }
-        
+
         /* --- Video Modal Styles --- */
         .modal {
             display: none;
@@ -478,8 +489,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .modal-content {
@@ -549,6 +565,7 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
+
             .hero-container,
             #about .about-content {
                 grid-template-columns: 1fr;
@@ -601,33 +618,44 @@
                 height: 220px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .container {
                 padding: 3rem 1rem;
             }
+
             .hero-text h1 {
                 font-size: clamp(2rem, 8vw, 2.5rem);
             }
+
             .subsection-title {
                 font-size: 1.5rem;
             }
+
             .project-card img {
                 height: 200px;
             }
 
             /* --- Mobile Animation Fix --- */
             .animated-subtitle {
-                white-space: normal; /* Allow text to wrap */
-                border-right: none; /* Remove the cursor */
-                width: auto; /* Let it take its natural width */
-                animation: none; /* Disable typing animation */
-                opacity: 0; /* Start invisible */
-                animation: mobileFadeIn 1s ease-out 1s forwards; /* Simple fade-in instead */
+                white-space: normal;
+                /* Allow text to wrap */
+                border-right: none;
+                /* Remove the cursor */
+                width: auto;
+                /* Let it take its natural width */
+                animation: none;
+                /* Disable typing animation */
+                opacity: 0;
+                /* Start invisible */
+                animation: mobileFadeIn 1s ease-out 1s forwards;
+                /* Simple fade-in instead */
             }
 
             @keyframes mobileFadeIn {
-                to { opacity: 1; }
+                to {
+                    opacity: 1;
+                }
             }
         }
     </style>
@@ -662,11 +690,17 @@
         <section id="home">
             <div class="hero-container">
                 <div class="hero-text fade-in">
-                    <h1>Hello, I'm Aditya Mallick.<br><span class="animated-subtitle">An IoT & AI Enthusiast</span></h1>
-                    <p>A third-year Computer Science student with a background in the Internet of Things (IoT). I'm
-                        passionate about building smart, connected systems and am now expanding my skills into AI and
-                        Machine Learning to create truly intelligent devices. I am seeking an internship where I can
-                        merge these fields and contribute to innovative projects.</p>
+                    <h1>Hello, I'm Aditya Mallick.</h1>
+                    <h2 class="animated-subtitle">Building Intelligent IoT & AI Systems</h2>
+                    <p>
+                        A third-year Computer Science student specializing in Embedded Systems and Computer Vision using
+                        Raspberry Pi.
+                        I build real-time automation systems integrating OpenCV, GPIO, and sensor modules.
+                        With certifications in Machine Learning (Stanford) and Oracle Cloud AI, I focus on creating
+                        intelligent IoT and robotics-driven systems.
+                        Currently seeking internships in IoT, Robotics, and AI-driven system development.
+                    </p>
+                    </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="cta-button">View My Work</a>
                     </div>
@@ -718,6 +752,7 @@
             <div class="container">
                 <h2 class="section-title fade-in">Skills & Technologies</h2>
 
+                <!-- Programming Languages -->
                 <h3 class="subsection-title fade-in">Programming Languages</h3>
                 <div class="skills-grid fade-in">
                     <div class="skill-card">
@@ -728,8 +763,13 @@
                         <i data-feather="coffee"></i>
                         <h4>Java</h4>
                     </div>
+                    <div class="skill-card">
+                        <i data-feather="globe"></i>
+                        <h4>JavaScript</h4>
+                    </div>
                 </div>
 
+                <!-- Libraries & Frameworks -->
                 <h3 class="subsection-title fade-in" style="margin-top: 4rem;">Libraries & Frameworks</h3>
                 <div class="skills-grid fade-in">
                     <div class="skill-card">
@@ -752,35 +792,117 @@
                         <i data-feather="play-circle"></i>
                         <h4>PyGame</h4>
                     </div>
+                    <div class="skill-card">
+                        <i data-feather="server"></i>
+                        <h4>Flask</h4>
+                    </div>
                 </div>
+
+                <!-- IoT & Hardware -->
+                <h3 class="subsection-title fade-in" style="margin-top: 4rem;">IoT & Hardware</h3>
+                <div class="skills-grid fade-in">
+                    <div class="skill-card">
+                        <i data-feather="cpu"></i>
+                        <h4>Raspberry Pi</h4>
+                    </div>
+                    <div class="skill-card">
+                        <i data-feather="settings"></i>
+                        <h4>GPIO</h4>
+                    </div>
+                    <div class="skill-card">
+                        <i data-feather="camera"></i>
+                        <h4>PiCamera2</h4>
+                    </div>
+                    <div class="skill-card">
+                        <i data-feather="activity"></i>
+                        <h4>HX711 (Load Cell)</h4>
+                    </div>
+                    <div class="skill-card">
+                        <i data-feather="sliders"></i>
+                        <h4>PCA9685</h4>
+                    </div>
+                </div>
+
+                <!-- Cloud & AI -->
+                <h3 class="subsection-title fade-in" style="margin-top: 4rem;">Cloud & AI</h3>
+                <div class="skills-grid fade-in">
+                    <div class="skill-card">
+                        <i data-feather="cloud"></i>
+                        <h4>Oracle Cloud (OCI)</h4>
+                    </div>
+                    <div class="skill-card">
+                        <i data-feather="trending-up"></i>
+                        <h4>Machine Learning</h4>
+                    </div>
+                </div>
+
             </div>
         </section>
+
 
         <!-- Projects Section -->
         <section id="projects">
             <div class="container">
                 <h2 class="section-title fade-in">Projects</h2>
+
                 <div class="card-grid fade-in">
-                    <!-- Highlighted Project -->
+
+                    <!-- Project 1 -->
                     <div class="project-card highlight-project">
                         <img src="https://github.com/AdityaMallick01/aditya-mallick-portfolio/blob/main/images/Thumbnail.jpg?raw=true"
                             alt="Surveillance Robot Project Thumbnail">
+
                         <div class="project-card-content">
                             <h4>Web-Controlled Surveillance Robot Using Raspberry Pi</h4>
-                            <p>Developed a web-controlled surveillance robot for real-time remote monitoring,
-                                integrating a camera module, motorized platform, and web-based interface using Raspberry
-                                Pi, OpenCV, and Flask. Enabled remote navigation and live video streaming for homes,
-                                offices, and security-sensitive areas.</p>
+
+                            <p>
+                                Developed a real-time web-controlled surveillance robot enabling live video streaming
+                                and remote navigation. Integrated Raspberry Pi, OpenCV, Flask, and GPIO-based
+                                motor control to build a smart monitoring system suitable for homes, offices,
+                                and security-sensitive environments.
+                            </p>
+
                             <div class="project-links">
-                                <a href="https://github.com/AdityaMallick01/Surveillance-Robot-" target="_blank">View
-                                    Code <i data-feather="github" style="width:16px; vertical-align: middle;"></i></a>
-                                <a href="https://youtu.be/Rx1IEUGFois" id="openModalBtn" target="_blank">Watch Demo <i data-feather="video" style="width:16px; vertical-align: middle;"></i></a>
+                                <a href="https://github.com/AdityaMallick01/Surveillance-Robot-" target="_blank">
+                                    View Code <i data-feather="github" style="width:16px;"></i>
+                                </a>
+
+                                <a href="https://youtu.be/Rx1IEUGFois" id="openModalBtn" target="_blank">
+                                    Watch Demo <i data-feather="video" style="width:16px;"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Project 2 -->
+                    <div class="project-card highlight-project">
+                        <img src="assets/object-sorter.jpg" alt="Automated Object Sorter Project">
+
+                        <div class="project-card-content">
+                            <h4>Automated Object Sorter Using Computer Vision & Load Cell</h4>
+
+                            <p>
+                                Built an intelligent object sorting system combining real-time shape detection
+                                and weight-based classification using Raspberry Pi. Implemented OpenCV with
+                                PiCamera2 for vision processing and integrated HX711 load cell (24-bit ADC)
+                                for accurate mass measurement. Automated pick-and-place operations using a
+                                6-DOF robotic arm controlled via PCA9685 (I2C).
+                            </p>
+
+                            <div class="project-links">
+                                <span style="color: var(--primary-color); font-weight: bold;">
+                                    Code & Demo Coming Soon
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+
 
         <!-- Certifications Section -->
         <section id="certifications">
@@ -823,6 +945,30 @@
                             </div>
                         </div>
                     </a>
+                    <!-- Stanford ML Certificate -->
+                    <a href="assets/certificates/ML-CERTIFICATE.pdf" target="_blank" class="cert-link">
+                        <div class="cert-card">
+                            <div class="cert-card-content">
+                                <h4>Supervised Machine Learning: Regression & Classification</h4>
+                                <p>Issued by: Stanford Online & DeepLearning.AI | Oct 2025</p>
+                                <div class="cert-view-link">
+                                    View Certificate <i data-feather="external-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Oracle AI Foundations Certificate -->
+                    <a href="assets/certificates/Oracle-AI-Foundations.pdf" target="_blank" class="cert-link">
+                        <div class="cert-card">
+                            <div class="cert-card-content">
+                                <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
+                                <p>Issued by: Oracle University | Oct 2025</p>
+                                <div class="cert-view-link">
+                                    View Certificate <i data-feather="external-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -854,7 +1000,9 @@
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <iframe id="projectVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="projectVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
 
@@ -923,20 +1071,20 @@
         const closeBtn = document.querySelector(".close-btn");
         const videoFrame = document.getElementById("projectVideo");
         const videoId = "Rx1IEUGFois"; // Your YouTube video ID
-        const videoSrcBase = "https://www.youtube.com/embed/"; 
+        const videoSrcBase = "https://www.youtube.com/embed/";
 
-        openModalBtn.onclick = function(e) {
+        openModalBtn.onclick = function (e) {
             e.preventDefault(); // Prevent page from jumping to top
             modal.style.display = "block";
             videoFrame.src = videoSrcBase + videoId; // Set the video src when opening
         }
 
-        closeBtn.onclick = function() {
+        closeBtn.onclick = function () {
             modal.style.display = "none";
             videoFrame.src = ""; // Stop the video from playing in the background
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
                 videoFrame.src = ""; // Stop the video
@@ -946,4 +1094,3 @@
 </body>
 
 </html>
-
